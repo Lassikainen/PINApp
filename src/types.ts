@@ -1,1 +1,0 @@
-export interface SavedPIN {name :string, pinSet : Array<string>}
