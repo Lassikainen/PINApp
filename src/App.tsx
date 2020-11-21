@@ -1,6 +1,7 @@
 import React from "react";
 import "./App.css";
 import GeneratorPage from './components/generator/GeneratorPage'
+import SavePage from './components/saved/SavePage'
 
 function App() {
   return (
@@ -8,6 +9,7 @@ function App() {
       <h1> PIN GENERATOR APP</h1>
 
       <GeneratorPage/>
+      <SavePage/>
     </div>
   );
 }
