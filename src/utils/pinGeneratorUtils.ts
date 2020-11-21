@@ -37,8 +37,6 @@ const generateSinglePin = (): string => {
       newPin = [];
     }
   }
-  // console.log(newPin)
-  // console.log(isValidPin)
   return newPin.join("");
 };
 

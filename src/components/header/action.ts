@@ -5,6 +5,7 @@ interface ChangePageAction {
   data: { newPage: string };
 }
 
+//Action to change the page displyed to the user
 export const changePageAction = (newPage: string): ChangePageAction => {
   return {
     type: CHANGE_PAGE,

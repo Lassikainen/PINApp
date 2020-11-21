@@ -7,9 +7,9 @@ interface GeneratePinAction {
   data: { newPinSet: Array<string> };
 }
 
+//Action to generate a new pin using a utility function and save to state
 export const generatePinSetAction = (): GeneratePinAction => {
   const result = generateSetOfPins();
-  console.log(result);
   return {
     type: GENERATE_NEW_PIN,
     data: {

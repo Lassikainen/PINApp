@@ -11,8 +11,6 @@ export const checkForDuplicatePINs = (
 
   //Check if any PIN in the listOfPINs both has the same length, and each of the elements matches the elements in pinToCheck
   duplicatesFound = listOfPINs.some((pinInList) => {
-    console.log(pinInList);
-    console.log(pinToCheck);
     if (pinToCheck.length !== pinInList.pinSet.length) {
       return false;
     } else {

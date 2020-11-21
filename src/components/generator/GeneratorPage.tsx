@@ -19,8 +19,6 @@ const GeneratorPage = () => {
   const savedPins = useSelector((state: any) => state.savedReducer.savedPins);
 
   const dispatch = useDispatch();
-  console.log("currentPin");
-  console.log(currentPinSet);
   return (
     <div>
       <div className="page-container generator-page">

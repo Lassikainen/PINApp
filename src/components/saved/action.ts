@@ -19,6 +19,7 @@ interface DeletePinAction {
   data: { index: number };
 }
 
+//Action to save a PIN to the list of saved PINs
 export const savePinAction = (newPinSet: Array<string>): SavePinAction => {
   return {
     type: SAVE_PIN,
@@ -28,6 +29,7 @@ export const savePinAction = (newPinSet: Array<string>): SavePinAction => {
   };
 };
 
+//Action to update the name of a chosen PIN
 export const updatePinNameAction = (
   index: number,
   newName: string
@@ -41,6 +43,7 @@ export const updatePinNameAction = (
   };
 };
 
+//ACtion to delete a chosen PIN
 export const deletePinAction = (index: number): DeletePinAction => {
   return {
     type: DELETE_PIN,
