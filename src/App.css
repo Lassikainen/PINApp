@@ -95,17 +95,30 @@ body {
 .save-button {
   float: right;
   margin-right: 0.5em;
-  background-color: #2196f3;
   border: 2px solid white;
   color: white;
 }
-.save-button:hover {
+
+.save-button:enabled{
+
+  background-color: #2196f3;
+}
+
+.save-button:disabled{
+
+  background-color: #aaa;
+}
+
+.save-button:enabled:hover {
   background-color: #1976d2;
 }
 
 button {
-  cursor: pointer;
   transition: all 0.2s ease-in-out;
+}
+
+button:enabled{
+  cursor:pointer;
 }
 
 button:focus{
