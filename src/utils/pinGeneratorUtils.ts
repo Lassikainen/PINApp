@@ -37,6 +37,8 @@ const generateSinglePin = (): string => {
       newPin = [];
     }
   }
+  // console.log(newPin)
+  // console.log(isValidPin)
   return newPin.join("");
 };
 
@@ -45,6 +47,7 @@ const checkValidPin = (inputPin: Array<number>): boolean => {
   let isConsecutiveAscending: boolean = false;
   let isConsecutiveDescending: boolean = false;
   let isConsecutiveNumbers: boolean = false;
+  let isValid: boolean = true;
 
   if (inputPin.length !== 4) {
     return false;
@@ -53,17 +56,17 @@ const checkValidPin = (inputPin: Array<number>): boolean => {
   inputPin.forEach((digit: number, i) => {
     //Return false if any digit is not an integer or greater than 9 or less than 0
     if (!Number.isInteger(digit) || digit > 9 || digit < 0) {
-      return false;
+      isValid = false;
     }
     //return false if two consective matching numbers are found
-    if (i > 1) {
+    if (i > 0) {
       isConsecutiveNumbers = inputPin[i] === inputPin[i - 1];
       if (isConsecutiveNumbers) {
-        return false;
+        isValid = false;
       }
     }
     //return false if 3 consecutive ascending or descending digits are found
-    if (i > 2) {
+    if (i > 1) {
       isConsecutiveAscending =
         inputPin[i] === inputPin[i - 1] - 1 &&
         inputPin[i] === inputPin[i - 2] - 2;
@@ -72,10 +75,10 @@ const checkValidPin = (inputPin: Array<number>): boolean => {
         inputPin[i] === inputPin[i - 2] + 2;
 
       if (isConsecutiveAscending || isConsecutiveDescending) {
-        return false;
+        isValid = false;
       }
     }
   });
 
-  return true;
+  return isValid;
 };
