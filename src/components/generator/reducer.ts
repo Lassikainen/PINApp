@@ -1,10 +1,21 @@
-import {} from '../../redux/actionConstants'
+import { GENERATE_NEW_PIN } from "../../redux/actionConstants";
 
-const initialState = {}
+const initialState = {
+  currentPinSet: ["", "", "", "", ""],
+  isPinGenerated: false,
+};
 
-export function generatorReducer(state = initialState, action: { type: string }){
-    switch(action.type){
-        default:
-            return state
-    }
+export function generatorReducer(
+  state = initialState,
+  action: { data: any; type: string }
+) {
+  switch (action.type) {
+    case GENERATE_NEW_PIN:
+      return {
+        ...state,
+        currentPinSet: action.data.newPinSet,
+      };
+    default:
+      return state;
+  }
 }
