@@ -4,9 +4,19 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { generatePinSetAction } from "./action";
 
+import { savePinAction } from "../saved/action";
+
+import {checkForDuplicatePINs} from "../../utils/pinDuplicateChecker"
+
 const GeneratorPage = () => {
   const currentPinSet = useSelector(
     (state: any) => state.generatorReducer.currentPinSet
+  );
+
+  const savedPins = useSelector((state: any) => state.savedReducer.savedPins);
+
+  const isPinGenerated = useSelector(
+    (state: any) => state.generatorReducer.isPinGenerated
   );
   const dispatch = useDispatch();
   console.log("currentPin");
@@ -40,12 +50,15 @@ const GeneratorPage = () => {
             GENERATE
           </button>
 
-          
           <button
+            disabled={!isPinGenerated || checkForDuplicatePINs(currentPinSet, savedPins)}
             className="button save-button"
             onClick={() => {
+              dispatch(savePinAction(currentPinSet));
             }}
-          >SAVE</button>
+          >
+            SAVE
+          </button>
         </div>
       </div>
     </div>
