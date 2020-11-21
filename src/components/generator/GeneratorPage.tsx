@@ -15,9 +15,6 @@ const GeneratorPage = () => {
 
   const savedPins = useSelector((state: any) => state.savedReducer.savedPins);
 
-  const isPinGenerated = useSelector(
-    (state: any) => state.generatorReducer.isPinGenerated
-  );
   const dispatch = useDispatch();
   console.log("currentPin");
   console.log(currentPinSet);
@@ -51,7 +48,7 @@ const GeneratorPage = () => {
           </button>
 
           <button
-            disabled={!isPinGenerated || checkForDuplicatePINs(currentPinSet, savedPins)}
+            disabled={checkForDuplicatePINs(currentPinSet, savedPins)}
             className="button save-button"
             onClick={() => {
               dispatch(savePinAction(currentPinSet));
