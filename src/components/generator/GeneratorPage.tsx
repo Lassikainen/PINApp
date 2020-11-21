@@ -2,6 +2,8 @@ import React from "react";
 
 import { useDispatch, useSelector } from "react-redux";
 
+import { generatePinSetAction } from "./action";
+
 const GeneratorPage = () => {
   const currentPinSet = useSelector(
     (state: any) => state.generatorReducer.currentPinSet
@@ -29,7 +31,14 @@ const GeneratorPage = () => {
         })}
       </div>
       <div className="actions-section">
-        <button className="button generator-button">GENERATE</button>
+        <button
+          className="button generator-button"
+          onClick={() => {
+            dispatch(generatePinSetAction());
+          }}
+        >
+          GENERATE
+        </button>
 
         <button>SAVE</button>
       </div>
