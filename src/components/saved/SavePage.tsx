@@ -4,8 +4,10 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { updatePinNameAction, deletePinAction } from "./action";
 
+import { SavedPIN } from "../../types";
+
 const SavePage = () => {
-  const savedPins = useSelector((state: any) => state.savedReducer.savedPins);
+  const savedPins : Array<SavedPIN> = useSelector((state: any) => state.savedReducer.savedPins);
   const dispatch = useDispatch();
   return (
     <div>

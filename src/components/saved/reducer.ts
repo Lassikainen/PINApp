@@ -3,6 +3,7 @@ import {
   UPDATE_PIN_NAME,
   DELETE_PIN,
 } from "../../redux/actionConstants";
+import { SavedPIN } from "../../types";
 
 const initialState = {
   savedPins: [],
@@ -12,7 +13,7 @@ export function savedReducer(
   state = initialState,
   action: { data: any; type: string }
 ) {
-  let savedPins: Array<any>;
+  let savedPins: Array<SavedPIN>;
   switch (action.type) {
     case SAVE_PIN:
       savedPins = [...state.savedPins];
