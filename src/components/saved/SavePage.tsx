@@ -11,10 +11,10 @@ const SavePage = () => {
   const dispatch = useDispatch();
   return (
     <div>
-      <div className="page-container saved-page">
+      <div className="page-container saved-page" data-testid="saved-page">
         {savedPins.map(
           (pin: { name: string; pinSet: Array<string> }, i: number) => {
-            return <PinRow name={pin.name} pinSet={pin.pinSet} index={i} />;
+            return <PinRow name={pin.name} pinSet={pin.pinSet} index={i} key = {`row-${pin.pinSet.join("")}`} />;
           }
         )}
       </div>
@@ -29,12 +29,13 @@ const PinRow = (props: {
 }) => {
   const dispatch = useDispatch();
   return (
-    <div className="saved-pin-row">
+    <div className="saved-pin-row" data-testid="saved-pin-row" >
       <input
         type="text"
         onChange={(evt) =>
           dispatch(updatePinNameAction(props.index, evt.target.value))
         }
+        data-testid = "pin-name"
         value={props.name}
       />
       {[...Array(5)].map((x, i) => {
@@ -46,7 +47,7 @@ const PinRow = (props: {
           currPin = "";
         }
         return (
-          <div key={i} className="new-pin-container">
+          <div key={`currPin-${i}`} className="new-pin-container" data-testid ="saved-pin-container">
             {currPin}
           </div>
         );
